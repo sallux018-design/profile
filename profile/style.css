@@ -1,0 +1,88 @@
+:root {
+  --bg-dark: #0d1117;
+  --text-light: #c9d1d9;
+  --accent: #58a6ff;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background: var(--bg-dark);
+  color: var(--text-light);
+  font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth;
+}
+a { color: var(--accent); text-decoration:none; transition:color .3s; }
+a:hover { color: #ffffff; }
+
+.nav-bar { background: #161b22; }
+.nav-bar ul { display:flex; justify-content:center; list-style:none; }
+.nav-bar li { margin: 0 1rem; }
+.nav-bar a { padding: 1rem; }
+
+.hero {
+  min-height: 80vh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  background: linear-gradient(45deg, #58a6ff, #eb371f);
+  background-size: 300% 300%;
+  animation: slideBG 12s ease infinite;
+  text-align: center;
+}
+.hero h1 {
+  font-size: 3rem;
+  background: linear-gradient(90deg, #58a6ff, #a5d6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: .5rem;
+}
+.hero p { font-size: 1.25rem; margin-bottom: 1rem; }
+.btn {
+  padding: .75rem 1.5rem;
+  background: var(--accent);
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(10, 9, 5, 0.651);
+}
+.btn:hover { box-shadow: 0 0 16px rgba(88,166,255,1); }
+
+@keyframes slideBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+section { padding: 4rem 2rem; text-align: center; }
+.projects .project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 2rem;
+}
+.project-card {
+  background: #161b22;
+  padding:2rem;
+  border-radius:8px;
+  transition: transform .4s, box-shadow .4s;
+}
+.project-card:hover {
+  transform: perspective(500px) rotateX(5deg) rotateY(5deg);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+h2 {
+  font-size:2rem;
+  margin-bottom:1.5rem;
+  display:inline-block;
+  position: relative;
+}
+h2::after {
+  content: '';
+  position:absolute;
+  left:0; bottom:-6px;
+  width:0; height:3px;
+  background: var(--accent);
+  transition: width .5s;
+}
+h2:hover::after { width:100%; }
+
+footer {
+  padding:2rem; font-size:.9rem;
+  color: #666;
+}
